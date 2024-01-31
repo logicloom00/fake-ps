@@ -51,7 +51,7 @@ def create_operation(request: CreateOperationRequest, db: Session = Depends(get_
 
 
 @app.get("/operations/{operation_id}/check")
-def check_operation(operation_id: str):
+def check_operation(operation_id: str, db: Session = Depends(get_db)):
 
     operation = db.query(Operation).filter(Operation.operation_id == operation_id).first()
     
