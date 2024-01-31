@@ -33,7 +33,9 @@ def create_operation(request: CreateOperationRequest):
     response_data = {
         "query_type": operation.query_type,
         "system_state": get_system_state(count_operation_created),
-        "operation_id": operation.operation_id
+        "operation_id": operation.operation_id,
+        "provider": operation.operation_type,
+        "operation_type": operation.operation_type
     }
     return JSONResponse(content=response_data)
 
@@ -84,7 +86,8 @@ def check_operation(operation_id: str):
         "system_state": system_current_state,
         "status": operation.status,
         "operation_id": operation.operation_id,
-        "provider": operation.provider
+        "provider": operation.provider,
+        "operation_type": operation.operation_type
     }
     return JSONResponse(content=response_data)
 
