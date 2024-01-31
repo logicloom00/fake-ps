@@ -29,7 +29,7 @@ def create_operation(request: CreateOperationRequest):
         )
         db.add(operation)
         db.commit()
-        db.refresh(operation)
+        # db.refresh(operation)
     finally:
         db.close()
     
