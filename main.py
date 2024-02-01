@@ -44,7 +44,7 @@ def create_operation(request: CreateOperationRequest, db: Session = Depends(get_
         "query_type": operation.query_type,
         "system_state": get_system_state(count_operation_created),
         "operation_id": operation.operation_id,
-        "provider": operation.operation_type,
+        "provider": operation.provider,
         "operation_type": operation.operation_type
     }
     return JSONResponse(content=response_data)
